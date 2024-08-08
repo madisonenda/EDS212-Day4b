@@ -1,0 +1,49 @@
+---
+title: "EDS 212 Day4b"
+author: "Maddy Enda"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#load some libraries----
+library(GGally)
+library(skimr)
+library(palmerpenguins)
+library(tidyverse)
+```
+
+```{r}
+View(penguins)
+
+#look at column names----
+names(penguins)
+
+#check out dimensions of dataframe ----
+dim(penguins)
+
+#get a summary of your dataframe----
+summary(penguins)
+
+#get a summary using {skimr}
+skimr::skim(penguins)
+
+#head and tail check
+head(penguins)
+tail(penguins)
+```
+
+#Making some plots in R#
+
+```{r}
+#pairsplot----
+GGally::ggpairs(penguins,columns=3:6, ggplot2::aes(color=species))
+
+#create histogram of penguin flipper lengths----
+ggplot(data=penguins, aes(x= flipper_length_mm, fill=species, fill=species)) +geom_histogram(color="black")
+       
+```
+
+
